@@ -53,3 +53,25 @@ export function formatearTexto(texto) {
 
   return recortado.charAt(0).toUpperCase() + recortado.slice(1).toLowerCase();
 }
+
+/**
+ * Cuenta el número de palabras de un texto, separadas por uno o más espacios.
+ * Añadida en la Tarea 3 para exigir un mínimo de 2 palabras por tarea.
+ *
+ * @param {string} texto - El texto a analizar.
+ * @returns {number} Número de palabras. 0 si el texto está vacío o solo tiene espacios.
+ * @throws {Error} Si el argumento no es una cadena.
+ */
+export function contarPalabras(texto) {
+  if (typeof texto !== 'string') {
+    throw new Error('El argumento debe ser un texto (string).');
+  }
+
+  const recortado = texto.trim();
+
+  if (recortado.length === 0) {
+    return 0;
+  }
+
+  return recortado.split(/\s+/).length;
+}
